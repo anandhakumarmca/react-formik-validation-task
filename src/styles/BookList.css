@@ -66,4 +66,9 @@
   .book-card p {
     margin: 5px 0;
   }
+
+  .book-list-container {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
 }

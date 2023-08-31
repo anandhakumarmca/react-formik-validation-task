@@ -8,10 +8,10 @@ function Dashboard() {
     <div className="dashboard-container">
       <nav className="navbar">
         <div className="navbar-logo">Library Management</div>
-        <ul className="navbar-links">
+        {/* <ul className="navbar-links">
           <li className="navbar-link">User</li>
           <li className="navbar-link">Login</li>
-        </ul>
+        </ul> */}
       </nav>
       <div className="dashboard-content">
         <BookList />
