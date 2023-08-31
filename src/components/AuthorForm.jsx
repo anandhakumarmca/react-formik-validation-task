@@ -29,6 +29,7 @@ const AuthorForm = ({ author, onSubmit }) => {
       }
       resetForm();
       onSubmit(); // Notify the parent component of the submission
+      window.location.reload();
     } catch (error) {
       console.error("Error submitting form:", error);
     }
