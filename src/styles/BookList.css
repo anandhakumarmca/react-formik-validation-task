@@ -51,3 +51,19 @@
 .full-width-card {
   grid-column: span 2; /* Adjust as needed */
 }
+
+@media (max-width: 600px) {
+  .book-list {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .book-list h2 {
+    font-size: 18px;
+    margin-top: 5px;
+  }
+
+  .book-card p {
+    margin: 5px 0;
+  }
+}

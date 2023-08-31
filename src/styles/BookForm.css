@@ -49,3 +49,21 @@
   border: 1px solid #ddd;
   border-radius: 5px;
 }
+
+/* Styles for screens smaller than 600px */
+@media (max-width: 600px) {
+  .book-form-container {
+    max-width: 100%;
+    padding: 10px;
+  }
+
+  input[type="text"],
+  .form-field input[type="date"],
+  .form-field textarea {
+    width: 100%;
+  }
+
+  .submit-button {
+    padding: 8px 15px;
+  }
+}
