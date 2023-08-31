@@ -1,15 +1,21 @@
-import React from 'react';
-import BookList from '../components/BookList';
-// import AuthorList from '../components/AuthorList';
-import '../styles/Dashboard.css'; // Import your CSS file
+import React from "react";
+import BookList from "../components/BookList";
+import AuthorList from "../components/AuthorList";
+import "../styles/Dashboard.css"; // Import your CSS file
 
 function Dashboard() {
   return (
     <div className="dashboard-container">
-      <h1 className="dashboard-header">Library Management Dashboard</h1>
+      <nav className="navbar">
+        <div className="navbar-logo">Library Management</div>
+        <ul className="navbar-links">
+          <li className="navbar-link">User</li>
+          <li className="navbar-link">Login</li>
+        </ul>
+      </nav>
       <div className="dashboard-content">
         <BookList />
-        {/* <AuthorList /> */}
+        <AuthorList />
       </div>
     </div>
   );

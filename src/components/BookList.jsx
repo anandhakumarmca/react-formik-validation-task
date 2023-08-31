@@ -1,32 +1,75 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import "../styles/BookList.css"; // Import your CSS file
-import BookForm from "./BookFrom";
+import BookForm from "./BookFrom"; 
+import { FaPlus, FaEdit, FaTrash } from "react-icons/fa"; // Import icons
 
 function BookList() {
   const [books, setBooks] = useState([]);
+  const [showAddBookForm, setShowAddBookForm] = useState(false);
+  const [selectedBook, setSelectedBook] = useState(null);
 
-  const addBook = (book) => {
-    setBooks([...books, book]);
+  useEffect(() => {
+    axios.get("http://localhost:3001/books").then((response) => {
+      setBooks(response.data);
+    });
+  }, []);
+
+  const handleEdit = (book) => {
+    setSelectedBook(book);
+    setShowAddBookForm(true);
+  };
+
+  const handleDelete = async (bookId) => {
+    try {
+      await axios.delete(`http://localhost:3001/books/${bookId}`);
+      setBooks(books.filter((book) => book.id !== bookId));
+    } catch (error) {
+      console.error("Error deleting book:", error);
+    }
   };
 
   return (
     <div className="book-list">
       <h2>Books</h2>
-      <BookForm
-        onSubmit={addBook}
-        initialValues={{ title: "", author: "", isbn: "", publicationDate: "" }}
-      />
-      <div className="book-list-container">
-        {books.map((book, index) => (
-          <div key={index} className="book-card">
-            <h3>{book.title}</h3>
-            <p>Author: {book.author}</p>
-            <p>ISBN: {book.isbn}</p>
-            <p>Publication Date: {book.publicationDate}</p>
-            {/* You can add more details here */}
+      {showAddBookForm ? (
+        <div className="book-card add-book-card full-width-card">
+          <BookForm
+            book={selectedBook}
+            onSubmit={() => {
+              setShowAddBookForm(false);
+              setSelectedBook(null);
+            }}
+          />
+        </div>
+      ) : (
+        <div className="book-list-container">
+          <div
+            className="book-card add-book-card"
+            onClick={() => setShowAddBookForm(true)}
+          >
+            <FaPlus className="add-icon" /> Add Book
           </div>
-        ))}
-      </div>
+          {books.map((book) => (
+            <div key={book.id} className="book-card">
+              <h3>{book.title}</h3>
+              <p>Author: {book.author}</p>
+              <p>ISBN: {book.isbn}</p>
+              <p>Publication Date: {book.publicationDate}</p>
+              <div className="book-actions">
+                <FaEdit
+                  className="edit-icon"
+                  onClick={() => handleEdit(book)}
+                />
+                <FaTrash
+                  className="delete-icon"
+                  onClick={() => handleDelete(book.id)}
+                />
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }

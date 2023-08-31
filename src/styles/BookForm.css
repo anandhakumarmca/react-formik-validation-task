@@ -1,12 +1,37 @@
-/* BookForm.css */
+.book-form {
+  width: 95%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.book-form h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
 .form-container {
+  background-color: #f9f9f9;
   border: 1px solid #ddd;
   padding: 20px;
-  margin-bottom: 20px;
   border-radius: 5px;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
 }
 
+.error-message {
+  color: red;
+  margin-top: 5px;
+}
+
+.submit-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Additional styles for form fields */
 .form-field {
   margin-bottom: 20px;
 }
@@ -23,18 +48,4 @@
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 5px;
-}
-
-.error-message {
-  color: red;
-  margin-top: 5px;
-}
-
-.submit-button {
-  background-color: #007bff;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
 }

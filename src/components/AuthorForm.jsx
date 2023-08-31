@@ -2,34 +2,31 @@ import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
-import "../styles/BookForm.css";
+import "../styles/AuthorForm.css"
 import { FaArrowLeft } from "react-icons/fa";
 
-const BookForm = ({ book, onSubmit }) => {
+const AuthorForm = ({ author, onSubmit }) => {
   const initialValues = {
-    title: book ? book.title : "",
-    author: book ? book.author : "",
-    isbn: book ? book.isbn : "",
-    publicationDate: book ? book.publicationDate : "",
+    name: author ? author.name : "",
+    birthDate: author ? author.birthDate : "",
+    biography: author ? author.biography : "",
   };
 
   const validationSchema = Yup.object().shape({
-    title: Yup.string().required("Title is required"),
-    author: Yup.string().required("Author is required"),
-    isbn: Yup.string().required("ISBN is required"),
-    publicationDate: Yup.date().required("Publication Date is required"),
+    name: Yup.string().required("Name is required"),
+    birthDate: Yup.date().required("Birth Date is required"),
+    biography: Yup.string().required("Biography is required"),
   });
 
   const handleSubmit = async (values, { resetForm }) => {
     try {
-      if (book) {
-        // If editing an existing book
-        await axios.put(`http://localhost:3001/books/${book.id}`, values);
+      if (author) {
+        // If author exists, perform an update (PUT) request
+        await axios.put(`http://localhost:3001/authors/${author.id}`, values);
       } else {
-        // If adding a new book
-        await axios.post("http://localhost:3001/books", values);
+        // If author doesn't exist, perform a create (POST) request
+        await axios.post("http://localhost:3001/authors", values);
       }
-
       resetForm();
       onSubmit(); // Notify the parent component of the submission
     } catch (error) {
@@ -42,10 +39,10 @@ const BookForm = ({ book, onSubmit }) => {
   };
 
   return (
-    <div className="book-form">
+    <div className="author-form">
       <h2>
         <FaArrowLeft onClick={handleBack} />
-        {book ? " Edit Book" : " Add Book"}
+        {author ? " Edit Author" : " Add Author"}
       </h2>
       <div className="form-container">
         <Formik
@@ -55,47 +52,37 @@ const BookForm = ({ book, onSubmit }) => {
         >
           <Form>
             <div className="form-field">
-              <label>Title</label>
-              <Field type="text" name="title" />
+              <label>Name</label>
+              <Field type="text" name="name" />
               <ErrorMessage
-                name="title"
+                name="name"
                 component="div"
                 className="error-message"
               />
             </div>
 
             <div className="form-field">
-              <label>Author</label>
-              <Field type="text" name="author" />
+              <label>Birth Date</label>
+              <Field type="date" name="birthDate" />
               <ErrorMessage
-                name="author"
+                name="birthDate"
                 component="div"
                 className="error-message"
               />
             </div>
 
             <div className="form-field">
-              <label>ISBN</label>
-              <Field type="text" name="isbn" />
+              <label>Biography</label>
+              <Field as="textarea" name="biography" />
               <ErrorMessage
-                name="isbn"
-                component="div"
-                className="error-message"
-              />
-            </div>
-
-            <div className="form-field">
-              <label>Publication Date</label>
-              <Field type="date" name="publicationDate" />
-              <ErrorMessage
-                name="publicationDate"
+                name="biography"
                 component="div"
                 className="error-message"
               />
             </div>
 
             <button type="submit" className="submit-button">
-              {book ? "Update" : "Submit"}
+              {author ? "Update" : "Submit"}
             </button>
           </Form>
         </Formik>
@@ -104,4 +91,4 @@ const BookForm = ({ book, onSubmit }) => {
   );
 };
 
-export default BookForm;
+export default AuthorForm;

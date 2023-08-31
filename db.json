@@ -1,0 +1,32 @@
+{
+  "books": [
+    {
+      "title": "Wings of Fire",
+      "author": " APJ Abdul Kalam.",
+      "isbn": "9788173711466",
+      "publicationDate": "1999-01-01",
+      "id": 1
+    },
+    {
+      "title": "Ponniyin Selvan",
+      "author": "Kalki Krishnamurthy.",
+      "isbn": "9382578382",
+      "publicationDate": "2023-01-01",
+      "id": 2
+    }
+  ],
+  "authors": [
+    {
+      "name": "APJ Abdul Kalam",
+      "birthDate": "1931-08-15",
+      "biography": "President of India (2002-2007)",
+      "id": 1
+    },
+    {
+      "name": "Kalki Krishnamurthy",
+      "birthDate": "1899-09-09",
+      "biography": "Indian writer, journalist, poet, and Indian independence activist.",
+      "id": 2
+    }
+  ]
+}
