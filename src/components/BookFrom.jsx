@@ -24,10 +24,10 @@ const BookForm = ({ book, onSubmit }) => {
     try {
       if (book) {
         // If editing an existing book
-        await axios.put(`http://localhost:3001/books/${book.id}`, values);
+        await axios.put(`https://library-management-1qq4.onrender.com/books/${book.id}`, values);
       } else {
         // If adding a new book
-        await axios.post("http://localhost:3001/books", values);
+        await axios.post("https://library-management-1qq4.onrender.com/books", values);
       }
 
       resetForm();

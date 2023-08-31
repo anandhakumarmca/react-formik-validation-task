@@ -51,4 +51,33 @@
 .full-width-card {
   grid-column: span 2; /* Adjust as needed */
 }
-/* You can add more styling as needed */
+
+@media (max-width: 600px) {
+  .author-list {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .author-list h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  .author-list-container {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .author-card {
+    padding: 10px;
+  }
+
+  .author-card h3 {
+    font-size: 18px;
+    margin-top: 5px;
+  }
+
+  .author-card p {
+    margin: 5px 0;
+  }
+}

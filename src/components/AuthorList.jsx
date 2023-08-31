@@ -10,7 +10,7 @@ function AuthorList() {
   const [selectedAuthor, setSelectedAuthor] = useState(null);
 
   useEffect(() => {
-    axios.get("http://localhost:3001/authors").then((response) => {
+    axios.get("https://library-management-1qq4.onrender.com/authors").then((response) => {
       setAuthors(response.data);
     });
   }, []);
@@ -22,7 +22,7 @@ function AuthorList() {
 
   const handleDeleteAuthor = async (authorId) => {
     try {
-      await axios.delete(`http://localhost:3001/authors/${authorId}`);
+      await axios.delete(`https://library-management-1qq4.onrender.com/authors/${authorId}`);
       setAuthors(authors.filter((author) => author.id !== authorId));
     } catch (error) {
       console.error("Error deleting author:", error);

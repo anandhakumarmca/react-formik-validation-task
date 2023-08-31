@@ -22,10 +22,10 @@ const AuthorForm = ({ author, onSubmit }) => {
     try {
       if (author) {
         // If author exists, perform an update (PUT) request
-        await axios.put(`http://localhost:3001/authors/${author.id}`, values);
+        await axios.put(`https://library-management-1qq4.onrender.com/authors/${author.id}`, values);
       } else {
         // If author doesn't exist, perform a create (POST) request
-        await axios.post("http://localhost:3001/authors", values);
+        await axios.post("https://library-management-1qq4.onrender.com/authors", values);
       }
       resetForm();
       onSubmit(); // Notify the parent component of the submission

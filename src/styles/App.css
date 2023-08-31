@@ -42,3 +42,22 @@ body {
 .error-message {
   color: red;
 }
+
+/* Styles for screens smaller than 600px */
+@media (max-width: 600px) {
+  body {
+    font-size: 14px;
+  }
+
+  .container {
+    padding: 10px;
+  }
+
+  .button {
+    padding: 8px 12px;
+  }
+
+  .form-field {
+    margin-bottom: 10px;
+  }
+}

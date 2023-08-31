@@ -10,7 +10,7 @@ function BookList() {
   const [selectedBook, setSelectedBook] = useState(null);
 
   useEffect(() => {
-    axios.get("http://localhost:3001/books").then((response) => {
+    axios.get("https://library-management-1qq4.onrender.com/books").then((response) => {
       setBooks(response.data);
     });
   }, []);
@@ -22,7 +22,7 @@ function BookList() {
 
   const handleDelete = async (bookId) => {
     try {
-      await axios.delete(`http://localhost:3001/books/${bookId}`);
+      await axios.delete(`https://library-management-1qq4.onrender.com/books/${bookId}`);
       setBooks(books.filter((book) => book.id !== bookId));
     } catch (error) {
       console.error("Error deleting book:", error);
