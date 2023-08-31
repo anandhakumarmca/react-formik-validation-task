@@ -60,11 +60,11 @@ function BookList() {
                 <FaEdit
                   className="edit-icon"
                   onClick={() => handleEdit(book)}
-                />
+                />Edit
                 <FaTrash
                   className="delete-icon"
                   onClick={() => handleDelete(book.id)}
-                />
+                />Delete
               </div>
             </div>
           ))}

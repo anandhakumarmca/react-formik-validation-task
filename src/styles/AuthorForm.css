@@ -41,6 +41,20 @@
   cursor: pointer;
 }
 
+.cancel-button {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.button-group{
+  display: flex;
+  gap: 10px;
+}
+
 @media (max-width: 600px) {
   .author-form {
     width: 100%;
@@ -60,6 +74,9 @@
     font-size: 12px;
   }
   .submit-button {
+    padding: 8px 15px;
+  }
+  .cancel-button {
     padding: 8px 15px;
   }
 }

@@ -59,11 +59,11 @@ function AuthorList() {
                 <FaEdit
                   className="edit-icon"
                   onClick={() => handleEditAuthor(author)}
-                />
+                />Edit
                 <FaTrash
                   className="delete-icon"
                   onClick={() => handleDeleteAuthor(author.id)}
-                />
+                />Delete
               </div>
             </div>
           ))}

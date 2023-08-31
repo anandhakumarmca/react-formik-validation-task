@@ -52,9 +52,25 @@
   grid-column: span 2; /* Adjust as needed */
 }
 
+.book-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.add-icon,
+.edit-icon,
+.delete-icon {
+  cursor: pointer;
+}
+
+.add-icon:hover,
+.edit-icon:hover,
+.delete-icon:hover {
+  color: #a4a5a6;
+}
+
 @media (max-width: 600px) {
   .book-list {
-    width: 100%;
     padding: 10px;
   }
 

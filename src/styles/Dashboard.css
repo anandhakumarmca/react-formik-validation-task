@@ -10,7 +10,7 @@
 }
 
 .dashboard-content {
-  width: 95%;
+  width: 97.6%;
   display: flex;
   gap: 20px;
   flex-direction: row;
@@ -42,20 +42,6 @@
 }
 
 @media (max-width: 600px) {
-  .book-list {
-    width: 100%;
-    padding: 10px;
-  }
-
-  .book-list h2 {
-    font-size: 18px;
-    margin-top: 5px;
-  }
-
-  .book-card p {
-    margin: 5px 0;
-  }
-
   .dashboard-content {
     width: 95%;
     display: flex;

@@ -52,9 +52,25 @@
   grid-column: span 2; /* Adjust as needed */
 }
 
+.author-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.add-icon,
+.edit-icon,
+.delete-icon {
+  cursor: pointer;
+}
+
+.add-icon:hover,
+.edit-icon:hover,
+.delete-icon:hover {
+  color: #a4a5a6;
+}
+
 @media (max-width: 600px) {
   .author-list {
-    width: 100%;
     padding: 10px;
   }
 
@@ -66,10 +82,6 @@
   .author-list-container {
     grid-template-columns: 1fr;
     gap: 10px;
-  }
-
-  .author-card {
-    padding: 10px;
   }
 
   .author-card h3 {

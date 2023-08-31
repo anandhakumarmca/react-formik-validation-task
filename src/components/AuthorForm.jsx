@@ -2,8 +2,7 @@ import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
-import "../styles/AuthorForm.css"
-import { FaArrowLeft } from "react-icons/fa";
+import "../styles/AuthorForm.css";
 
 const AuthorForm = ({ author, onSubmit }) => {
   const initialValues = {
@@ -22,10 +21,16 @@ const AuthorForm = ({ author, onSubmit }) => {
     try {
       if (author) {
         // If author exists, perform an update (PUT) request
-        await axios.put(`https://library-management-1qq4.onrender.com/authors/${author.id}`, values);
+        await axios.put(
+          `https://library-management-1qq4.onrender.com/authors/${author.id}`,
+          values
+        );
       } else {
         // If author doesn't exist, perform a create (POST) request
-        await axios.post("https://library-management-1qq4.onrender.com/authors", values);
+        await axios.post(
+          "https://library-management-1qq4.onrender.com/authors",
+          values
+        );
       }
       resetForm();
       onSubmit(); // Notify the parent component of the submission
@@ -41,10 +46,7 @@ const AuthorForm = ({ author, onSubmit }) => {
 
   return (
     <div className="author-form">
-      <h2>
-        <FaArrowLeft onClick={handleBack} />
-        {author ? " Edit Author" : " Add Author"}
-      </h2>
+      <h2>{author ? " Edit Author" : " Add Author"}</h2>
       <div className="form-container">
         <Formik
           initialValues={initialValues}
@@ -81,10 +83,18 @@ const AuthorForm = ({ author, onSubmit }) => {
                 className="error-message"
               />
             </div>
-
-            <button type="submit" className="submit-button">
-              {author ? "Update" : "Submit"}
-            </button>
+            <div className="button-group">
+              <button type="submit" className="submit-button">
+                {author ? "Update" : "Submit"}
+              </button>
+              <button
+                type="button"
+                className="cancel-button"
+                onClick={handleBack}
+              >
+                cancel
+              </button>
+            </div>
           </Form>
         </Formik>
       </div>

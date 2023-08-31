@@ -3,7 +3,6 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 import "../styles/BookForm.css";
-import { FaArrowLeft } from "react-icons/fa";
 
 const BookForm = ({ book, onSubmit }) => {
   const initialValues = {
@@ -24,10 +23,16 @@ const BookForm = ({ book, onSubmit }) => {
     try {
       if (book) {
         // If editing an existing book
-        await axios.put(`https://library-management-1qq4.onrender.com/books/${book.id}`, values);
+        await axios.put(
+          `https://library-management-1qq4.onrender.com/books/${book.id}`,
+          values
+        );
       } else {
         // If adding a new book
-        await axios.post("https://library-management-1qq4.onrender.com/books", values);
+        await axios.post(
+          "https://library-management-1qq4.onrender.com/books",
+          values
+        );
       }
 
       resetForm();
@@ -44,10 +49,7 @@ const BookForm = ({ book, onSubmit }) => {
 
   return (
     <div className="book-form">
-      <h2>
-        <FaArrowLeft onClick={handleBack} />
-        {book ? " Edit Book" : " Add Book"}
-      </h2>
+      <h2>{book ? " Edit Book" : " Add Book"}</h2>
       <div className="form-container">
         <Formik
           initialValues={initialValues}
@@ -94,10 +96,18 @@ const BookForm = ({ book, onSubmit }) => {
                 className="error-message"
               />
             </div>
-
-            <button type="submit" className="submit-button">
-              {book ? "Update" : "Submit"}
-            </button>
+            <div className="button-group">
+              <button type="submit" className="submit-button">
+                {book ? "Update" : "Submit"}
+              </button>
+              <button
+                type="button"
+                className="cancel-button"
+                onClick={handleBack}
+              >
+                cancel
+              </button>
+            </div>
           </Form>
         </Formik>
       </div>
